@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Nauka</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div>
+            <h1>📚 Quiz Nauka</h1>
+            <p>Przygotuj się do egzaminu</p>
+        </div>
+
+        <button id="themeBtn" class="themeBtn" title="Zmień motyw">
+            🌙
+        </button>
+    </header>
+
+
+    <!-- MENU -->
+    <nav class="nav">
+        <button
+            class="menu active"
+            onclick="showPage('single', this)">
+            📖 Jedno pytanie
+        </button>
+
+        <button
+            class="menu"
+            onclick="showPage('exam', this)">
+            📝 Egzamin
+        </button>
+
+        <button
+            class="menu"
+            onclick="showPage('stats', this)">
+            📊 Postęp
+        </button>
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- JEDNO PYTANIE -->
+    <!-- ========================= -->
+
+    <section id="single" class="page active">
+
+        <div class="sectionHeader">
+            <h2>📖 Jedno pytanie</h2>
+            <p>Wylosuj pytanie i sprawdź swoją wiedzę.</p>
+        </div>
+
+        <button
+            class="mainBtn"
+            onclick="startSingle()">
+            🎲 Losuj pytanie
+        </button>
+
+        <div id="singleBox"></div>
+
+        <button
+            id="nextSingle"
+            class="mainBtn hidden"
+            onclick="nextSingle()">
+            ➡ Następne pytanie
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- EGZAMIN -->
+    <!-- ========================= -->
+
+    <section id="exam" class="page">
+
+        <div class="sectionHeader">
+            <h2>📝 Egzamin</h2>
+            <p>Wybierz liczbę pytań i rozwiąż cały egzamin.</p>
+        </div>
+
+
+        <div class="examSettings">
+
+            <label for="nick">
+                👤 Nick
+            </label>
+
+            <input
+                id="nick"
+                type="text"
+                placeholder="Twój nick"
+                maxlength="30">
+
+
+            <label for="examAmount">
+                📋 Liczba pytań
+            </label>
+
+            <select id="examAmount">
+                <option value="25">25 pytań</option>
+                <option value="50">50 pytań</option>
+                <option value="100">100 pytań</option>
+            </select>
+
+        </div>
+
+
+        <button
+            class="mainBtn"
+            onclick="startExam()">
+            🚀 Rozpocznij egzamin
+        </button>
+
+
+        <!-- INFORMACJA O EGZAMINIE -->
+
+        <div
+            id="examInfo"
+            class="examInfo hidden">
+        </div>
+
+
+        <!-- PASEK POSTĘPU -->
+
+        <div
+            id="examProgressContainer"
+            class="progressContainer hidden">
+
+            <div class="progress">
+                <div id="examProgress"></div>
+            </div>
+
+            <p id="examProgressText">
+                0 / 0 odpowiedzi
+            </p>
+
+        </div>
+
+
+        <!-- WSZYSTKIE PYTANIA EGZAMINU -->
+
+        <div id="examBox"></div>
+
+
+        <!-- ZAKOŃCZENIE EGZAMINU -->
+
+        <button
+            id="finishExamBtn"
+            class="mainBtn finishBtn hidden"
+            onclick="finishExam()">
+            ✅ Zakończ egzamin
+        </button>
+
+
+        <!-- WYNIK -->
+
+        <div id="examResult"></div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- POSTĘP -->
+    <!-- ========================= -->
+
+    <section id="stats" class="page">
+
+        <div class="sectionHeader">
+            <h2>📊 Twój postęp</h2>
+            <p>Sprawdź swoje wyniki.</p>
+        </div>
+
+
+        <div id="statsBox"></div>
+
+
+        <div class="sectionHeader rankingHeader">
+            <h2>🏆 Ranking egzaminów</h2>
+        </div>
+
+        <div id="rankingBox"></div>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,815 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: #eef2f7;
+    color: #222;
+
+    transition: background 0.3s, color 0.3s;
+}
+
+
+body.dark {
+    background: #111827;
+    color: #f3f4f6;
+}
+
+
+/* ========================= */
+/* GŁÓWNY KONTENER */
+/* ========================= */
+
+.app {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 30px auto;
+    padding: 20px;
+}
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+
+    padding: 22px 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+.dark .header {
+    background: #1f2937;
+}
+
+
+.header h1 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+}
+
+
+.header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+
+.dark .header p {
+    color: #cbd5e1;
+}
+
+
+/* ========================= */
+/* TRYB CIEMNY */
+/* ========================= */
+
+.themeBtn {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #111827;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 21px;
+
+    transition: transform 0.2s;
+}
+
+
+.themeBtn:hover {
+    transform: scale(1.08);
+}
+
+
+body.dark .themeBtn {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+
+/* ========================= */
+/* MENU */
+/* ========================= */
+
+.nav {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+
+.menu {
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: #d1d5db;
+
+    color: #111827;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+
+.menu:hover {
+    transform: translateY(-2px);
+}
+
+
+.menu.active {
+    background: #2563eb;
+    color: white;
+}
+
+
+.dark .menu {
+    background: #374151;
+    color: white;
+}
+
+
+.dark .menu.active {
+    background: #2563eb;
+}
+
+
+/* ========================= */
+/* STRONY */
+/* ========================= */
+
+.page {
+    display: none;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+.dark .page {
+    background: #1f2937;
+}
+
+
+.page.active {
+    display: block;
+}
+
+
+.sectionHeader {
+    margin-bottom: 20px;
+}
+
+
+.sectionHeader h2 {
+    margin: 0 0 8px 0;
+}
+
+
+.sectionHeader p {
+    margin: 0;
+
+    color: #6b7280;
+}
+
+
+.dark .sectionHeader p {
+    color: #cbd5e1;
+}
+
+
+/* ========================= */
+/* PRZYCISKI */
+/* ========================= */
+
+.mainBtn {
+    display: inline-block;
+
+    margin: 15px 0;
+
+    padding: 14px 25px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #2563eb;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+
+.mainBtn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+.mainBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================= */
+/* PYTANIE */
+/* ========================= */
+
+.questionCard {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+.dark .questionCard {
+    background: #111827;
+    border-color: #374151;
+}
+
+
+.questionNumber {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+    margin-bottom: 10px;
+}
+
+
+.question {
+    font-size: 21px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    margin: 10px 0 20px;
+}
+
+
+/* ========================= */
+/* ODPOWIEDZI */
+/* ========================= */
+
+.answers {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.answer {
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    border: 2px solid transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    background: #f3f4f6;
+
+    color: #111827;
+
+    transition: border-color 0.15s, background 0.15s;
+}
+
+
+.answer:hover {
+    border-color: #2563eb;
+}
+
+
+.dark .answer {
+    background: #374151;
+    color: white;
+}
+
+
+/*
+    Wybrana odpowiedź
+*/
+
+.answer.selected {
+    border: 3px solid #2563eb !important;
+}
+
+
+/*
+    Poprawna odpowiedź
+*/
+
+.answer.correct {
+    background: #22c55e !important;
+
+    color: white !important;
+
+    border-color: #15803d !important;
+}
+
+
+/*
+    Błędnie zaznaczona odpowiedź
+*/
+
+.answer.wrong {
+    background: #ef4444 !important;
+
+    color: white !important;
+
+    border-color: #991b1b !important;
+}
+
+
+/* ========================= */
+/* EGZAMIN */
+/* ========================= */
+
+.examSettings {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin: 20px 0;
+}
+
+
+.examSettings label {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    font-weight: 600;
+}
+
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    border: 1px solid #cbd5e1;
+
+    background: white;
+
+    color: #111827;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+input:focus,
+select:focus {
+    border-color: #2563eb;
+}
+
+
+.dark input,
+.dark select {
+    background: #111827;
+
+    color: white;
+
+    border-color: #4b5563;
+}
+
+
+/* ========================= */
+/* INFORMACJA EGZAMIN */
+/* ========================= */
+
+.examInfo {
+    margin: 20px 0;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #dbeafe;
+
+    color: #1e3a8a;
+
+    font-weight: 600;
+}
+
+
+.dark .examInfo {
+    background: #1e3a8a;
+
+    color: #dbeafe;
+}
+
+
+/* ========================= */
+/* PASEK POSTĘPU */
+/* ========================= */
+
+.progressContainer {
+    margin: 20px 0;
+}
+
+
+.progress {
+    width: 100%;
+
+    height: 20px;
+
+    background: #d1d5db;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress div {
+    height: 100%;
+
+    width: 0%;
+
+    background: #22c55e;
+
+    transition: width 0.3s;
+}
+
+
+.progressContainer p {
+    text-align: center;
+
+    margin: 8px 0 0;
+
+    font-weight: 600;
+}
+
+
+/* ========================= */
+/* PYTANIA EGZAMINACYJNE */
+/* ========================= */
+
+.examQuestion {
+    margin: 25px 0;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+.dark .examQuestion {
+    background: #111827;
+
+    border-color: #374151;
+}
+
+
+.examQuestion.answered {
+    border-left: 5px solid #2563eb;
+}
+
+
+.examQuestion .question {
+    margin-top: 5px;
+}
+
+
+/* ========================= */
+/* WYNIK EGZAMINU */
+/* ========================= */
+
+.resultBox {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    background: #dcfce7;
+
+    color: #14532d;
+
+    text-align: center;
+}
+
+
+.dark .resultBox {
+    background: #14532d;
+
+    color: #dcfce7;
+}
+
+
+.resultScore {
+    font-size: 38px;
+
+    font-weight: 800;
+
+    margin: 10px 0;
+}
+
+
+.resultPercent {
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+/* ========================= */
+/* STATYSTYKI */
+/* ========================= */
+
+.infoBox {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.info {
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-align: center;
+}
+
+
+.info strong {
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+.statsList {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.statQuestion {
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #f3f4f6;
+
+    border-left: 5px solid #2563eb;
+}
+
+
+.dark .statQuestion {
+    background: #374151;
+}
+
+
+.statQuestionTitle {
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.statNumbers {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* RANKING */
+/* ========================= */
+
+.rankingHeader {
+    margin-top: 35px;
+}
+
+
+.rank {
+    background: #f3f4f6;
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+    margin: 10px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.dark .rank {
+    background: #374151;
+}
+
+
+.rankName {
+    font-weight: 700;
+}
+
+
+.rankScore {
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+
+.empty {
+    padding: 20px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    background: #f3f4f6;
+
+    border-radius: 12px;
+}
+
+
+.dark .empty {
+    background: #374151;
+
+    color: #d1d5db;
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 800px) {
+
+    .app {
+        margin: 10px auto;
+
+        padding: 10px;
+    }
+
+
+    .header {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 15px;
+    }
+
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+
+    .nav {
+        grid-template-columns: 1fr;
+    }
+
+
+    .page {
+        padding: 18px;
+    }
+
+
+    .examSettings {
+        grid-template-columns: 1fr;
+    }
+
+
+    .question {
+        font-size: 18px;
+    }
+
+
+    .answer {
+        font-size: 15px;
+
+        padding: 14px;
+    }
+
+
+    .infoBox {
+        grid-template-columns: 1fr;
+    }
+
+
+    .rank {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .examQuestion,
+    .questionCard {
+        padding: 18px;
+    }
+}
