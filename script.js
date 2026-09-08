@@ -10468,6 +10468,19 @@ const themeBtn = document.getElementById("themeBtn");
 
 
 /* =========================================================
+   JEDNORAZOWE WYZEROWANIE POSTĘPU
+   ========================================================= */
+
+const progressResetVersion = "2026-09-08-reset-1";
+
+if (localStorage.getItem("progressResetVersion") !== progressResetVersion) {
+    localStorage.removeItem("questionStats");
+    localStorage.removeItem("ranking");
+    localStorage.setItem("progressResetVersion", progressResetVersion);
+}
+
+
+/* =========================================================
    LOCAL STORAGE - STATYSTYKI
    ========================================================= */
 
@@ -10649,6 +10662,10 @@ function renderSingleQuestion(question) {
 
             <div class="questionNumber">
                 Losowe pytanie
+            </div>
+
+            <div class="examSource">
+                📅 Egzamin: ${escapeHTML(question.comment)} · pytanie ${question.sourceNumber}
             </div>
 
             <div class="question">
@@ -10880,6 +10897,10 @@ function renderExam() {
                 <div class="questionNumber">
                     Pytanie ${questionIndex + 1}
                     z ${examQuestions.length}
+                </div>
+
+                <div class="examSource">
+                    📅 Egzamin: ${escapeHTML(question.comment)} · pytanie ${question.sourceNumber}
                 </div>
 
                 <div class="question">

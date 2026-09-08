@@ -813,3 +813,14 @@ select:focus {
         padding: 18px;
     }
 }
+
+/* Informacja o zestawie źródłowym pytania */
+.examSource {
+    display: inline-block;
+    margin: 8px 0 14px;
+    padding: 7px 11px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: rgba(127, 127, 127, 0.12);
+}
